@@ -1,0 +1,71 @@
+plugins {
+	id 'com.diffplug.gradle.spotless' version '3.9.0'
+	id 'com.gradle.plugin-publish' version '0.9.10'
+}
+
+apply plugin: 'java'
+apply plugin: 'groovy'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+
+repositories { jcenter() }
+
+configurations { pluginDependency }
+
+dependencies {
+	compile gradleApi()
+	compile localGroovy()
+
+	testCompile gradleTestKit()
+	testCompile 'junit:junit:4+'
+
+	pluginDependency 'com.vladsch.flexmark:flexmark:0.32.2'
+	pluginDependency 'com.vladsch.flexmark:flexmark-pdf-converter:0.32.2'
+
+	// Adds pluginDependency to gradle plugin jar
+	configurations.compile.extendsFrom(configurations.pluginDependency)
+}
+
+sourceSets {
+	main {
+		java { srcDir 'src/main/java' }
+		groovy { srcDir 'src/main/groovy' }
+		resources { srcDir 'src/main/resources' }
+	}
+	test {
+		java { srcDir 'src/test/java' }
+		groovy { srcDir 'src/test/groovy' }
+		resources { srcDir 'src/test/resources' }
+	}
+}
+
+spotless {
+	java { googleJavaFormat() }
+	groovy { greclipse() }
+	groovyGradle { greclipse() }
+}
+
+jar {
+	from {
+		configurations.pluginDependency.collect { it.isDirectory() ? it : zipTree(it) }
+	}
+}
+
+pluginBundle {
+	website = 'https://www.fntsoftware.com/'
+	vcsUrl = 'https://github.com/fntsoftware/gradle-plugin-markdown2pdf'
+	description = 'Plugin to create PDF from MD based on the flexmark plugin'
+	tags = [
+		'markdowntopdf',
+		'markdown2pdf',
+		'markdown'
+	]
+	version = "${version}"
+
+	plugins {
+		markdownToPdfPlugin {
+			id = "${group}.markdown-to-pdf"
+			displayName = 'MarkdownToPdf Plugin'
+		}
+	}
+}
