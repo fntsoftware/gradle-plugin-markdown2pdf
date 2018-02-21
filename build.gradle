@@ -60,7 +60,7 @@ pluginBundle {
 		'markdown2pdf',
 		'markdown'
 	]
-	version = "${version}"
+
 
 	plugins {
 		markdownToPdfPlugin {

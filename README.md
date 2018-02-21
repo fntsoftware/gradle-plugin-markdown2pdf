@@ -1,6 +1,22 @@
 # Markdown-to-PDF Plugin
 
 This Plugin Converts a Markdown-File to a PDF-File based on the v0.32.2 [flexmark-plugin](https://github.com/vsch/flexmark-java).
+To use this Plugin you can use:
+
+```
+buildscript {
+  repositories {
+		maven {
+			url 'https://plugins.gradle.org/m2/'
+		}
+  }
+  dependencies {
+		classpath 'gradle.plugin.de.fntsoftware.gradle:markdown-to-pdf:1.0'
+  }
+}
+
+apply plugin: 'de.fntsoftware.gradle.markdown-to-pdf'
+```
 
 ## Configurations
 It is possible to create own tasks with input and output files. The input file will be converted from Markdown-File to PDF-File. Optionally you can configure a path for your own CSS-File. If no path is configured, a default CSS-File is used. **For all Markdown-Files in the build.gradle directory are already default tasks with the output in the build directory.**
