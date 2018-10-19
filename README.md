@@ -40,7 +40,9 @@ task exampleTask3(type: MarkdownToHtmlTask){
 	outputFile = '/PATH/TO/CHANGELOG.html'
 }
 ```
-Default Task Example:
+
+## Default tasks
+Directory Layout Example:
 ```
 - example
 	-- build.gradle
