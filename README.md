@@ -64,3 +64,4 @@ Here the task "readmeToHtml" will create
 	-- build
 		---README.html
 ```
+Additionally there are `buildPdf` and `buildHtml` tasks that build all markdown files.
