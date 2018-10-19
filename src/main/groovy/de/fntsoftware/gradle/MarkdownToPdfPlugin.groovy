@@ -23,4 +23,3 @@ class MarkdownToPdfPlugin implements Plugin<Project> {
 		project.extensions.add('markdownToPdf', new MarkdownToPdf())
 	}
 }
-
