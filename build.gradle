@@ -43,6 +43,8 @@ spotless {
 	java { googleJavaFormat() }
 	groovy { greclipse() }
 	groovyGradle { greclipse() }
+
+	lineEndings = com.diffplug.spotless.LineEnding.UNIX
 }
 
 jar {
