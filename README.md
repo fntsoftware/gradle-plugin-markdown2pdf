@@ -34,14 +34,21 @@ task exampleTask2(type: MarkdownToPdfTask){
 	inputFile = '/PATH/TO/CHANGELOG.md'
 	outputFile = '/PATH/TO/CHANGELOG.pdf'
 }
+
+task exampleTask3(type: MarkdownToHtmlTask){
+	inputFile = '/PATH/TO/CHANGELOG.md'
+	outputFile = '/PATH/TO/CHANGELOG.html'
+}
 ```
-Default Task Example:
+
+## Default tasks
+Directory Layout Example:
 ```
 - example
 	-- build.gradle
 	-- README.md
 ```
-Here you can use the task "readmeToPdf" which will create
+Here the task "readmeToPdf" will create
 ```
 - example
 	-- build.gradle
@@ -49,3 +56,12 @@ Here you can use the task "readmeToPdf" which will create
 	-- build
 		---README.pdf
 ```
+Here the task "readmeToHtml" will create
+```
+- example
+	-- build.gradle
+	-- README.md
+	-- build
+		---README.html
+```
+Additionally there are `buildPdf` and `buildHtml` tasks that build all markdown files.
