@@ -14,13 +14,14 @@ class MarkdownToPdfPlugin implements Plugin<Project> {
 
 		project.fileTree([dir: '.', include: '*.md']).files.each { file ->
 			def fileNameWithoutExtension = file.name.take(file.name.lastIndexOf('.'))
+			def taskName = fileNameWithoutExtension.toLowerCase().replace(" ", "")
 
-			def pdfTask = project.tasks.create("${fileNameWithoutExtension.toLowerCase()}ToPdf", MarkdownToPdfTask)
+			def pdfTask = project.tasks.create("${taskName}ToPdf", MarkdownToPdfTask)
 			pdfTask.inputFile = file
 			pdfTask.outputFile = project.buildDir.path + '/' + fileNameWithoutExtension + '.pdf'
 			buildPdfTask.dependsOn(pdfTask)
 
-			def htmlTask = project.tasks.create("${fileNameWithoutExtension.toLowerCase()}ToHtml", MarkdownToHtmlTask)
+			def htmlTask = project.tasks.create("${taskName}ToHtml", MarkdownToHtmlTask)
 			htmlTask.inputFile = file
 			htmlTask.outputFile = project.buildDir.path + '/' + fileNameWithoutExtension + '.html'
 			buildHtmlTask.dependsOn(htmlTask)
