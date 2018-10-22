@@ -4,6 +4,8 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 
 class MarkdownToPdfPlugin implements Plugin<Project> {
+	private static final FORBIDDEN_CHARACTERS = [" ", "/", "\\", ":", "<", ">", "\"", "?", "*", "|"]
+
 	@Override
 	void apply(Project project) {
 		// disable logging
@@ -14,7 +16,9 @@ class MarkdownToPdfPlugin implements Plugin<Project> {
 
 		project.fileTree([dir: '.', include: '*.md']).files.each { file ->
 			def fileNameWithoutExtension = file.name.take(file.name.lastIndexOf('.'))
-			def taskName = fileNameWithoutExtension.toLowerCase().replace(" ", "")
+			def taskName = fileNameWithoutExtension.toLowerCase()
+
+			taskName = FORBIDDEN_CHARACTERS.inject(taskName, { name, character -> name.replace(character, "") })
 
 			def pdfTask = project.tasks.create("${taskName}ToPdf", MarkdownToPdfTask)
 			pdfTask.inputFile = file
