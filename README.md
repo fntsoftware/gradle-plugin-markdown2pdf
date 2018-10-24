@@ -1,6 +1,6 @@
 # Markdown-to-PDF Plugin
 
-This Plugin Converts a Markdown-File to a PDF-File based on the v0.32.2 [flexmark-plugin](https://github.com/vsch/flexmark-java).
+This Plugin Converts a Markdown-File to a PDF-File based on the [flexmark-plugin](https://github.com/vsch/flexmark-java).
 To use this Plugin you can use:
 
 ```
