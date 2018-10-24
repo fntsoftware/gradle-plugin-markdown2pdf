@@ -1,11 +1,11 @@
 package de.fntsoftware.gradle
 
 class MarkdownToPdf {
-	private static final DEFAULT_RESOURCE = 'bitbucket.css';
+	private static final DEFAULT_RESOURCE = 'bitbucket.css'
 
-	String cssFile;
+	String cssFile
 
-	private String cssFileContent = null;
+	private String cssFileContent = null
 
 	public String getCssFileContent() {
 		if(this.cssFileContent == null) {
@@ -16,13 +16,13 @@ class MarkdownToPdf {
 					this.cssFileContent = getClass().getResourceAsStream(this.cssFile).getText()
 				}
 				else {
-					this.cssFileContent = new File(this.cssFile).getText();
+					this.cssFileContent = new File(this.cssFile).getText()
 				}
 			}
 			else {
 				this.cssFileContent = getClass().getResourceAsStream(DEFAULT_RESOURCE).getText()
 			}
 		}
-		return this.cssFileContent;
+		return this.cssFileContent
 	}
 }

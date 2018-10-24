@@ -31,7 +31,7 @@ class MarkdownToPdfPluginTest {
 		@Test
 		void markdownToPdfPluginAddsMarkdownToPdfTaskToProject() {
 			Project project = ProjectBuilder.builder().build()
-			new File(project.getProjectDir(), 'README.md').createNewFile();
+			new File(project.getProjectDir(), 'README.md').createNewFile()
 
 			project.pluginManager.apply this.pluginId
 
@@ -43,10 +43,10 @@ class MarkdownToPdfPluginTest {
 		void markdownToPdfPluginTestsMarkdownToPdfTaskMarkdownToPdf() {
 			Project project = ProjectBuilder.builder().build()
 			project.pluginManager.apply this.pluginId
-			MarkdownToPdfTask task = project.tasks.create("myTask", MarkdownToPdfTask.class);
+			MarkdownToPdfTask task = project.tasks.create("myTask", MarkdownToPdfTask.class)
 			task.inputFile = getClass().getResource("READMETest.md").toURI()
-			task.outputFile = project.getProjectDir().getPath() + '/READMETest.pdf';
-			task.action();
+			task.outputFile = project.getProjectDir().getPath() + '/READMETest.pdf'
+			task.action()
 
 			assertTrue(task.outputFile.exists())
 		}

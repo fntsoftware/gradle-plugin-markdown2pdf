@@ -5,9 +5,9 @@ import org.gradle.api.InvalidUserDataException
 import org.gradle.api.tasks.InputFile
 import org.gradle.api.tasks.OutputFile
 
-import com.vladsch.flexmark.html.HtmlRenderer;
-import com.vladsch.flexmark.parser.Parser;
-import com.vladsch.flexmark.util.options.MutableDataSet;
+import com.vladsch.flexmark.html.HtmlRenderer
+import com.vladsch.flexmark.parser.Parser
+import com.vladsch.flexmark.util.options.MutableDataSet
 
 class AbstractMarkdownTask extends DefaultTask {
 
@@ -38,7 +38,7 @@ class AbstractMarkdownTask extends DefaultTask {
 	}
 
 	protected String buildHtml() {
-		MarkdownToPdf settings = this.getProject().getExtensions().getByType(MarkdownToPdf.class);
+		MarkdownToPdf settings = this.getProject().getExtensions().getByType(MarkdownToPdf.class)
 		if(this.inputFile.exists()) {
 			def outputDir = new File(outputFile.parent)
 			outputDir.mkdirs()
