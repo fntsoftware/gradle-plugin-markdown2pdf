@@ -39,7 +39,7 @@ class AbstractMarkdownTask extends DefaultTask {
 
 	protected String buildHtml() {
 		MarkdownToPdf settings = this.project.extensions.getByType(MarkdownToPdf)
-		if(this.inputFile.exists()) {
+		if (this.inputFile.exists()) {
 			def outputDir = new File(outputFile.parent)
 			outputDir.mkdirs()
 

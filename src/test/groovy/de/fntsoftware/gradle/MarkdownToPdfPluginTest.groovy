@@ -22,7 +22,7 @@ class MarkdownToPdfPluginTest {
 		@After
 		void after() {
 			File temp = new File(project.projectDir, 'READMETest.pdf')
-			if(temp.exists()) {
+			if (temp.exists()) {
 				temp.delete()
 			}
 		}

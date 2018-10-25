@@ -8,11 +8,11 @@ class MarkdownToPdf {
 	private String cssFileContent = null
 
 	public String getCssFileContent() {
-		if(this.cssFileContent == null) {
+		if (this.cssFileContent == null) {
 
 			if (this.cssFile != null ) {
 				//If file not exists, check whether resource exists
-				if(new File(this.cssFile) == null && getClass().getResourceAsStream(this.cssFile) != null){
+				if (new File(this.cssFile) == null && getClass().getResourceAsStream(this.cssFile) != null) {
 					this.cssFileContent = getClass().getResourceAsStream(this.cssFile).text
 				}
 				else {
