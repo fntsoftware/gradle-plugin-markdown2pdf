@@ -21,7 +21,7 @@ class MarkdownToPdfPluginTest {
 
 		@After
 		void after() {
-			File temp = new File(project.getProjectDir(), 'READMETest.pdf')
+			File temp = new File(project.projectDir, 'READMETest.pdf')
 			if(temp.exists()) {
 				temp.delete()
 			}
@@ -30,7 +30,7 @@ class MarkdownToPdfPluginTest {
 		@Test
 		void markdownToPdfPluginAddsMarkdownToPdfTaskToProject() {
 			Project project = ProjectBuilder.builder().build()
-			new File(project.getProjectDir(), 'README.md').createNewFile()
+			new File(project.projectDir, 'README.md').createNewFile()
 
 			project.pluginManager.apply this.pluginId
 
@@ -42,9 +42,9 @@ class MarkdownToPdfPluginTest {
 		void markdownToPdfPluginTestsMarkdownToPdfTaskMarkdownToPdf() {
 			Project project = ProjectBuilder.builder().build()
 			project.pluginManager.apply this.pluginId
-			MarkdownToPdfTask task = project.tasks.create("myTask", MarkdownToPdfTask.class)
+			MarkdownToPdfTask task = project.tasks.create("myTask", MarkdownToPdfTask)
 			task.inputFile = getClass().getResource("READMETest.md").toURI()
-			task.outputFile = project.getProjectDir().getPath() + '/READMETest.pdf'
+			task.outputFile = project.projectDir.path + '/READMETest.pdf'
 			task.action()
 
 			assertTrue(task.outputFile.exists())
