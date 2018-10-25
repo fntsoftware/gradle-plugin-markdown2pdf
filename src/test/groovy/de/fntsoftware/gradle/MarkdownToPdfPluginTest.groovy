@@ -1,6 +1,5 @@
 package de.fntsoftware.gradle
 
-import static org.gradle.testkit.runner.TaskOutcome.*
 import static org.junit.Assert.assertTrue
 
 import org.gradle.api.Project
