@@ -11,7 +11,7 @@ buildscript {
 		}
   }
   dependencies {
-		classpath 'gradle.plugin.de.fntsoftware.gradle:markdown-to-pdf:1.0.1'
+		classpath 'gradle.plugin.de.fntsoftware.gradle:markdown-to-pdf:1.1.0'
   }
 }
 

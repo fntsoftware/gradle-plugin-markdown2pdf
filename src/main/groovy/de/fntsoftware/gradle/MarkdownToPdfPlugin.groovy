@@ -4,7 +4,18 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 
 class MarkdownToPdfPlugin implements Plugin<Project> {
-	private static final FORBIDDEN_CHARACTERS = [" ", "/", "\\", ":", "<", ">", "\"", "?", "*", "|"]
+	private static final FORBIDDEN_CHARACTERS = [
+		" ",
+		"/",
+		"\\",
+		":",
+		"<",
+		">",
+		"\"",
+		"?",
+		"*",
+		"|"
+	]
 
 	@Override
 	void apply(Project project) {
