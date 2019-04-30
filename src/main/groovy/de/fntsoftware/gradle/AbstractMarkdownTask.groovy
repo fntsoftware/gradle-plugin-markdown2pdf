@@ -1,13 +1,13 @@
 package de.fntsoftware.gradle
 
+import com.vladsch.flexmark.html.HtmlRenderer
+import com.vladsch.flexmark.parser.Parser
+import com.vladsch.flexmark.util.options.DataKey
+import com.vladsch.flexmark.util.options.MutableDataSet
 import org.gradle.api.DefaultTask
 import org.gradle.api.InvalidUserDataException
 import org.gradle.api.tasks.InputFile
 import org.gradle.api.tasks.OutputFile
-
-import com.vladsch.flexmark.html.HtmlRenderer
-import com.vladsch.flexmark.parser.Parser
-import com.vladsch.flexmark.util.options.MutableDataSet
 
 class AbstractMarkdownTask extends DefaultTask {
 
@@ -35,6 +35,10 @@ class AbstractMarkdownTask extends DefaultTask {
 
 	File setOutputFile(Object file) {
 		this.outputFile = project.file(file)
+	}
+
+	MutableDataSet setOption(DataKey key, Object value) {
+		this.options.set(key, value)
 	}
 
 	protected String buildHtml() {

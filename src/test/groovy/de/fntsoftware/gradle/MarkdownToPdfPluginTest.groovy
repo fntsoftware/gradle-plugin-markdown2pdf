@@ -1,5 +1,6 @@
 package de.fntsoftware.gradle
 
+import static org.junit.Assert.assertEquals
 import static org.junit.Assert.assertTrue
 
 import org.gradle.api.Project
@@ -7,6 +8,8 @@ import org.gradle.testfixtures.ProjectBuilder
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
+
+import com.vladsch.flexmark.ext.tables.*
 
 class MarkdownToPdfPluginTest {
 	private final String pluginId = "de.fntsoftware.gradle.markdown-to-pdf"
@@ -45,6 +48,8 @@ class MarkdownToPdfPluginTest {
 			MarkdownToPdfTask task = project.tasks.create("myTask", MarkdownToPdfTask)
 			task.inputFile = getClass().getResource("READMETest.md").toURI()
 			task.outputFile = project.projectDir.path + '/READMETest.pdf'
+			task.setOption(Parser.EXTENSIONS, Arrays.asList(TablesExtension.create()))
+			assertEquals(task.options.get(Parser.EXTENSIONS), Arrays.asList(TablesExtension.create()))
 			task.action()
 
 			assertTrue(task.outputFile.exists())

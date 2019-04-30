@@ -18,6 +18,7 @@ dependencies {
 
 	testCompile gradleTestKit()
 	testCompile 'junit:junit:4+'
+	testCompile 'com.vladsch.flexmark:flexmark-ext-tables:0.34.52'
 
 	pluginDependency 'com.vladsch.flexmark:flexmark:0.34.52'
 	pluginDependency 'com.vladsch.flexmark:flexmark-pdf-converter:0.34.52'

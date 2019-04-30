@@ -41,6 +41,30 @@ task exampleTask3(type: MarkdownToHtmlTask){
 }
 ```
 
+### Adding Parser Options
+By default, no parser options are set.  To add parser options, you will need to create a task to use the setOption() function.
+
+```
+import com.vladsch.flexmark.ext.tables.*
+import com.vladsch.flexmark.parser.Parser
+
+...
+
+dependencies {
+	...
+	classpath 'com.vladsch.flexmark:flexmark-ext-tables:0.34.52'
+}
+...
+
+task exampleTaskSetParserOption(type: MarkdownToHtmlTask){
+	inputFile = '/PATH/TO/CHANGELOG.md'
+	outputFile = '/PATH/TO/CHANGELOG.html'
+	setOption(Parser.EXTENSIONS, Arrays.asList(TablesExtension.create()))
+}
+```
+
+In the above example, the TablesExtension is added. So you will need to import the correct packages and dependencies into your `build.gradle`.
+
 ## Default tasks
 Directory Layout Example:
 ```
@@ -64,4 +88,4 @@ Here the task "readmeToHtml" will create
 	-- build
 		---README.html
 ```
-Additionally there are `buildPdf` and `buildHtml` tasks that build all markdown files.
+Additionally there are `buildPdf` and `buildHtml` tasks that build all markdown files. 
