@@ -45,7 +45,7 @@ task exampleTask3(type: MarkdownToHtmlTask){
 By default, no parser options are set.  To add parser options, you will need to create a task to use the setOption() function.
 
 ```
-import com.vladsch.flexmark.ext.tables.*
+import com.vladsch.flexmark.ext.tables.TablesExtension
 import com.vladsch.flexmark.parser.Parser
 
 ...
