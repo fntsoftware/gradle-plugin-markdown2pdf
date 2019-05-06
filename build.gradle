@@ -18,9 +18,10 @@ dependencies {
 
 	testCompile gradleTestKit()
 	testCompile 'junit:junit:4+'
+	testCompile "com.vladsch.flexmark:flexmark-all:$flexmark_version"
 
-	pluginDependency 'com.vladsch.flexmark:flexmark:0.34.52'
-	pluginDependency 'com.vladsch.flexmark:flexmark-pdf-converter:0.34.52'
+	pluginDependency "com.vladsch.flexmark:flexmark:$flexmark_version"
+	pluginDependency "com.vladsch.flexmark:flexmark-pdf-converter:$flexmark_version"
 
 	// Adds pluginDependency to gradle plugin jar
 	configurations.compile.extendsFrom(configurations.pluginDependency)
